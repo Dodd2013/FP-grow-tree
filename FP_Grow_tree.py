@@ -10,3 +10,6 @@ class FP_Grow_tree:
 		#print(a)
 		self.f.tree.FP_growth(self.f.headnode,self.f.headtable)
 		pass
+	def printfrequent(self):
+		self.f.tree.printfrequent()
+		pass

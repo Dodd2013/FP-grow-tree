@@ -13,4 +13,4 @@ sample=[
 ##参数说明 sample为事务数据集
 ff=FP_Grow_tree.FP_Grow_tree(sample,[],3)
 ##打印频繁集
-ff.f.tree.printfrequent()
+ff.printfrequent()
