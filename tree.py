@@ -8,7 +8,6 @@ class tree:
 		self.headnode=headnode
 		self.headtable=headtable
 		self.support=support
-		#tree.FP_growth(self.headnode,self.headtable,None)
 		#print('ji:')
 		#print(a)
 		#tree.printTree(self.headnode)
@@ -47,10 +46,6 @@ class tree:
 							xx.append(jix[0])
 							tree.frequent.append((",".join(str(i) for i in xx),jix[1]))
 							pass
-					#f=fptree.fptree(datas,3)
-					#f.fp_tree()
-					#f.tree=tree(f.getRootTree(),f.headtable)
-					#f.tree.FP_growth(f.headnode,f.headtable,list(a)+list(item))
 				pass
 			pass
 		pass

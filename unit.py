@@ -10,9 +10,6 @@ def generateCombination(headtable,a,support):
 
 		if(headtable[x].count>=support):
 			lis.append(x)
-			#y=[]
-			#y.append(x)
-			#lisc.append(y)
 	lenlis=len(lis)
 	for i in range(2,lenlis+1):
 		lisc+=list(combinations(lis,i))
@@ -41,9 +38,7 @@ def generateSubset(headtable,item,a,frequent):
 			lis=lis.parent
 			l.append(lis.name)
 		node=node.next
-		#y=a+l
 		if len(l)>0:
-			#frequent.append((",".join(str(i) for i in y),count))
 			for x in range(0,count):
 				datas.append(l)
 				pass

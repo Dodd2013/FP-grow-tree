@@ -13,8 +13,7 @@ class fptree:
 	def fp_tree(self):
 		self.pretable=self.getpretable()
 		self.pretable=[i for i in self.pretable if i[1] >= self.support]
-		#self.tree=tree.tree(self.getRootTree(),self.headtable)
-		#print(self.pretable)
+		print(self.pretable)
 	def getpretable(self):
 		pretable={}
 		for t in self.datas:
