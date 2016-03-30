@@ -1,3 +1,4 @@
+#-*- coding:utf-8 –*-
 __author__ = 'Dodd'
 import unit
 import FP_Grow_tree

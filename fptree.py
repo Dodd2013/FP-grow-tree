@@ -1,3 +1,4 @@
+#-*- coding:utf-8 –*-
 __author__ = 'Dodd'
 import node
 import tree
@@ -13,7 +14,7 @@ class fptree:
 	def fp_tree(self):
 		self.pretable=self.getpretable()
 		self.pretable=[i for i in self.pretable if i[1] >= self.support]
-		print(self.pretable)
+		#print(self.pretable)
 	def getpretable(self):
 		pretable={}
 		for t in self.datas:

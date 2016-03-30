@@ -1,3 +1,4 @@
+#-*- coding:utf-8 –*-
 from itertools import combinations
 import tree
 def generateCombination(headtable,a,support):
