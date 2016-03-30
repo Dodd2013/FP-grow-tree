@@ -1,5 +1,4 @@
-import fptree
-import tree
+import FP_Grow_tree
 sample=[
     ['milk','eggs','bread','chips'],
     ['eggs','popcorn','chips','beer'],
@@ -11,8 +10,7 @@ sample=[
     ['milk','eggs','bread','butter','chips'],
     ['milk','eggs','butter','chips']
 ]
-f=fptree.fptree(sample,3)
-f.fp_tree()
-f.tree=tree.tree(f.getRootTree(),f.headtable)
-f.tree.FP_growth(f.headnode,f.headtable,None)
-f.tree.printfrequent()
+##参数说明 sample为事务数据集
+ff=FP_Grow_tree.FP_Grow_tree(sample,[],3)
+##打印频繁集
+ff.f.tree.printfrequent()

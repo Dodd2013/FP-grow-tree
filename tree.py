@@ -1,30 +1,56 @@
 __author__ = 'Dodd'
 import unit
-import fptree
+import FP_Grow_tree
 class tree:
 	frequent=[]
-	def __init__(self,headnode,headtable):
+	def __init__(self,headnode,headtable,support,a):
+		self.a=a
 		self.headnode=headnode
 		self.headtable=headtable
+		self.support=support
 		#tree.FP_growth(self.headnode,self.headtable,None)
+		#print('ji:')
+		#print(a)
 		#tree.printTree(self.headnode)
 		#tree.printheadtable(self.headtable)
 		pass
 	def printfrequent(self):
-		print(tree.frequent)
-	def FP_growth(self,headnode,headtable,a):
+		y=sorted(tree.frequent,key=lambda x:x[1],reverse=True)
+		for x in y:
+			print(x)
+			pass
+		print(len(y))
+	def FP_growth(self,headnode,headtable):
+		a=self.a
 		if tree.checkTreeOneWay(headnode):
-			tree.frequent+=list(unit.generateCombination(headtable,a))
+			add=unit.generateCombination(headtable,a,self.support)
+			if len(add)>0:
+				tree.frequent+=add
+			#print('frequent')
+			#print(tree.frequent)
 			pass
 		else:
 			for item in headtable:
 				#datas为条件模式基
-				datas=unit.generateSubset(headtable,item)
+				datas=unit.generateSubset(headtable,item,self.a,tree.frequent)
 				if datas:
-					f=fptree.fptree(datas,3)
-					f.fp_tree()
-					f.tree=tree.tree(f.getRootTree(),f.headtable)
-					f.tree.FP_growth(f.headnode,f.headtable,list(a)+list(item))
+					#print(item)
+					if item:
+						x=a[:]
+						x.append(item)
+						f=FP_Grow_tree.FP_Grow_tree(datas,x,self.support)
+						#print('----------------ddddd-')
+						#print(f.f.pretable)
+						for jix in f.f.pretable:
+							xx=a[:]
+							xx.append(item)
+							xx.append(jix[0])
+							tree.frequent.append((",".join(str(i) for i in xx),jix[1]))
+							pass
+					#f=fptree.fptree(datas,3)
+					#f.fp_tree()
+					#f.tree=tree(f.getRootTree(),f.headtable)
+					#f.tree.FP_growth(f.headnode,f.headtable,list(a)+list(item))
 				pass
 			pass
 		pass
@@ -43,12 +69,12 @@ class tree:
 		return True
 	def printTree(node):
 		if len(node.child)!=0:
-			print(node.name+str(node.count))
+			print(node.name+str(node.count)+'p   '+node.parent.name if node.parent else 'not')
 			for nodes in node.child:
 				tree.printTree(nodes)
 				pass
 		else:
-			print(node.name+str(node.count))
+			print(node.name+str(node.count)+'p   '+node.parent.name if node.parent else 'not')
 		print('--------------')
 	def printheadtable(headtable):
 		print(headtable)
